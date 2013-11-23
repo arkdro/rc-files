@@ -1,0 +1,47 @@
+;; vim: ft=lisp
+;; Erlang mode
+(add-to-list 'auto-mode-alist '("\\.app$" . erlang-mode))
+
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq load-path (cons "/usr/lib/erlang/lib/tools-2.6.6.6/emacs" load-path))
+(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+(setq erlang-man-root-dir "/usr/lib/erlang/man")
+(require 'erlang-start)
+;; Distel
+(add-to-list 'load-path "~/.emacs.d/share/distel/elisp")
+(require 'distel)
+(distel-setup)
+
+;; Wrangler
+(add-to-list 'load-path "~/util/erlang/dist/lib/erlang/lib/wrangler-1.0/elisp")
+(require 'wrangler)
+(load-library "graphviz-dot-mode")
+
+;; Some Erlang customizations
+(add-hook 'erlang-mode-hook
+(lambda ()
+;; when starting an Erlang shell in Emacs, with the node
+;; short name set to vitaliy
+(setq inferior-erlang-machine-options '("-sname" "u1h6"))
+;; for search:
+(modify-syntax-entry ?_ "w")
+;; add Erlang functions to an imenu menu
+(imenu-add-to-menubar "imenu")))
+;; A number of the erlang-extended-mode key bindings are useful in the
+;; shell too
+(defconst distel-shell-keys
+    '(("\C-\M-i"   erl-complete)
+    ("\M-?"      erl-complete)
+    ("\M-."      erl-find-source-under-point)
+    ("\M-,"      erl-find-source-unwind)
+    ("\M-*"      erl-find-source-unwind)
+  )
+    "Additional keys to bind when in Erlang shell.")
+
+(add-hook 'erlang-shell-mode-hook
+(lambda ()
+    ;; add some Distel bindings to the Erlang shell
+    (dolist (spec distel-shell-keys)
+    (define-key erlang-shell-mode-map (car spec) (cadr spec)))))
+(setq erlang-electric-commands 't)
+

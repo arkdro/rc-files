@@ -1,0 +1,7 @@
+export HISTCONTROL=ignoreboth
+export IGNOREEOF=3
+export VISUAL=vim
+export EDITOR=vim
+export LC_MESSAGES=C
+alias v='ls -l'
+export LESS=-i
