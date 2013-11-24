@@ -22,3 +22,22 @@
   ; M-x customize-face RET py-TAB
  '(py-variable-name-face ((t (:foreground "blue"))))
  '(py-number-face ((t (:foreground "pink")))))
+
+(add-to-list 'load-path "~/.emacs.d/share/jedi")
+(add-to-list 'load-path "~/.emacs.d/share/jedi/jedi-0.1.2")
+
+;; emacs rpc
+(require 'epc)
+
+;; auto complete
+(require 'auto-complete)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/share/jedi/dict")
+(ac-config-default)
+(setq global-auto-complete-mode t)
+
+;; jedi
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
+(autoload 'jedi:setup "jedi" nil t)
+(add-hook 'python-mode-hook 'jedi:setup)
