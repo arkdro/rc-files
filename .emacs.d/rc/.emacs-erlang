@@ -13,9 +13,9 @@
 (distel-setup)
 
 ;; Wrangler
-(add-to-list 'load-path "~/util/erlang/dist/lib/erlang/lib/wrangler-1.0/elisp")
-(require 'wrangler)
-(load-library "graphviz-dot-mode")
+;;(add-to-list 'load-path "~/util/erlang/dist/lib/erlang/lib/wrangler-1.0/elisp")
+;;(require 'wrangler)
+;;(load-library "graphviz-dot-mode")
 
 ;; Some Erlang customizations
 (add-hook 'erlang-mode-hook
