@@ -41,3 +41,11 @@
 (setq jedi:complete-on-dot t)
 (autoload 'jedi:setup "jedi" nil t)
 (add-hook 'python-mode-hook 'jedi:setup)
+
+;; python modes redefines C-Backspace to py-hungry-delete-backwards.
+;; And this new C-Backspace is hungry for spaces only.
+(add-hook 'python-mode-hook (lambda ()
+                              (define-key python-mode-map
+                                          (kbd "<C-backspace>")
+                                          'backward-kill-word)
+                              ))
