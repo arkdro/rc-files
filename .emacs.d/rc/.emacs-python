@@ -1,9 +1,8 @@
 ;; vim: ft=lisp
 ;; Lisp mode
 
-(add-to-list 'load-path "~/util/python/python-mode/")
-(setq py-install-directory "~/util/python/python-mode/")
-;;(when (featurep 'python) (unload-feature 'python t))
+(add-to-list 'load-path "~/.emacs.d/share/python-mode/")
+(setq py-install-directory "~/.emacs.d/share/python-mode/")
 (require 'python-mode)
 
 (setq-default py-shell-name "ipython")
