@@ -147,6 +147,10 @@
 (load-file "~/.emacs.d/rc/.emacs-clojure")
 (load-file "~/.emacs.d/rc/.emacs-ocaml")
 (load-file "~/.emacs.d/rc/.emacs-python")
+; the following hooker doesn't work
+;(add-hook 'python-mode-hook (lambda ()
+;                             (load-file "~/.emacs.d/rc/.emacs-python")
+;							  nil 'make-it-local))
 
 ;(add-to-list 'load-path "~/.emacs.d/share/sunrise-commander/elisp")
 ;(require 'sunrise-commander)
@@ -231,3 +235,4 @@
 	"Minor mode for pseudo-structurally editing Lisp code."
 	t)
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
+
