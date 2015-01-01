@@ -1,8 +1,11 @@
 ;; vim: ft=lisp
 ;; Lisp mode
 
+;(add-to-list 'load-path "~/util/python/python-mode/")
+;(setq py-install-directory "~/util/python/python-mode/")
 (add-to-list 'load-path "~/.emacs.d/share/python-mode/")
 (setq py-install-directory "~/.emacs.d/share/python-mode/")
+;;(when (featurep 'python) (unload-feature 'python t))
 (require 'python-mode)
 
 (setq-default py-shell-name "ipython")
@@ -25,6 +28,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/share/jedi")
 (add-to-list 'load-path "~/.emacs.d/share/jedi/jedi-0.1.2")
+;(add-to-list 'load-path "~/util/emacs/j2/jedi-0.1.2/")
 
 ;; emacs rpc
 (require 'epc)
@@ -39,6 +43,9 @@
 ;; jedi
 (setq jedi:setup-keys t)
 (setq jedi:complete-on-dot t)
+;setq jedi:server-args
+;     '("--log" "~/util/emacs/j2/jedi-0.1.2/jedi.log"
+;       "--log-level" "DEBUG"))
 (autoload 'jedi:setup "jedi" nil t)
 (add-hook 'python-mode-hook 'jedi:setup)
 
