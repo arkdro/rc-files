@@ -132,7 +132,7 @@
 ;(color-theme-taylor)
 ;;(add-to-list 'default-frame-alist '(foreground-color . "white"))
 ;;(add-to-list 'default-frame-alist '(background-color . "black"))
-;;(add-to-list 'default-frame-alist '(cursor-color . "coral"))
+(add-to-list 'default-frame-alist '(cursor-color . "coral"))
 ;;(add-to-list 'default-frame-alist '(height . 24))
 ;;(add-to-list 'default-frame-alist '(width . 80))
 
@@ -143,9 +143,20 @@
 (setq undo-no-redo t)
 
 (load-file "~/.emacs.d/rc/.emacs-ampl")
-(load-file "~/.emacs.d/rc/.emacs-erlang")
+;(load-file "~/.emacs.d/rc/.emacs-erlang")
+(add-hook 'erlang-mode-hook
+    '(lambda ()
+        ; (add-hook HOOK FUNCTION &optional APPEND LOCAL) <- LOCAL=t
+        (load-file "~/.emacs.d/rc/.emacs-erlang")
+        nil 'make-it-local))
 (load-file "~/.emacs.d/rc/.emacs-clojure")
-(load-file "~/.emacs.d/rc/.emacs-ocaml")
+;(load-file "~/.emacs.d/rc/.emacs-ocaml")
+(add-hook 'tuareg-mode-hook
+    '(lambda ()
+        ; (add-hook HOOK FUNCTION &optional APPEND LOCAL) <- LOCAL=t
+        (load-file "~/.emacs.d/rc/.emacs-ocaml")
+        nil 'make-it-local))
+
 (load-file "~/.emacs.d/rc/.emacs-python")
 ; the following hooker doesn't work
 ;(add-hook 'python-mode-hook (lambda ()
@@ -236,3 +247,11 @@
 	t)
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
 
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(font-lock-comment-face ((t (:foreground "grey50"))))
+ '(py-number-face ((t (:foreground "pink"))))
+ '(py-variable-name-face ((t (:foreground "blue")))))
