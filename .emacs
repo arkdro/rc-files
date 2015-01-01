@@ -143,12 +143,7 @@
 (setq undo-no-redo t)
 
 (load-file "~/.emacs.d/rc/.emacs-ampl")
-;(load-file "~/.emacs.d/rc/.emacs-erlang")
-(add-hook 'erlang-mode-hook
-    '(lambda ()
-        ; (add-hook HOOK FUNCTION &optional APPEND LOCAL) <- LOCAL=t
-        (load-file "~/.emacs.d/rc/.emacs-erlang")
-        nil 'make-it-local))
+(load-file "~/.emacs.d/rc/.emacs-erlang")
 (load-file "~/.emacs.d/rc/.emacs-clojure")
 ;(load-file "~/.emacs.d/rc/.emacs-ocaml")
 (add-hook 'tuareg-mode-hook
