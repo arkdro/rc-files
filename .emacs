@@ -250,3 +250,10 @@
  '(font-lock-comment-face ((t (:foreground "grey50"))))
  '(py-number-face ((t (:foreground "pink"))))
  '(py-variable-name-face ((t (:foreground "blue")))))
+
+(defun kill-this-buffer-volatile ()
+    "Kill current buffer, even if it has been modified."
+    (interactive)
+    (set-buffer-modified-p nil)
+    (kill-this-buffer))
+(global-set-key [(super ?k)] 'kill-this-buffer-volatile)
