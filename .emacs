@@ -32,6 +32,10 @@
     read-file-name-completion-ignore-case t
     read-buffer-completion-ignore-case t
 )
+
+(global-set-key (kbd "C-<prior>") 'tabbar-backward)
+(global-set-key (kbd "C-<next>") 'tabbar-forward)
+
 (show-ws-toggle-show-tabs)
 ;(toggle-show-trailing-whitespace-show-ws)
 (set-default 'indicate-empty-lines t)
