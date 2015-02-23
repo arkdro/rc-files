@@ -162,6 +162,15 @@
 ;                             (load-file "~/.emacs.d/rc/.emacs-python")
 ;							  nil 'make-it-local))
 
+(add-hook 'haskell-mode-hook '(lambda ()
+                          (global-set-key (kbd "M-.") 'inferior-haskell-find-definition)
+ 						  nil 'make-it-local))
+
+;(add-to-list 'load-path "~/.emacs.d/share/structured-haskell-mode/elisp")
+;(require 'shm)
+;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+;(setq shm-program-name "/home/user1/.emacs.d/share/structured-haskell-mode/dist/build/structured-haskell-mode/structured-haskell-mode") ; full path here
+
 ;(add-to-list 'load-path "~/.emacs.d/share/sunrise-commander/elisp")
 ;(require 'sunrise-commander)
 
