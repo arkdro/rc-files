@@ -233,6 +233,12 @@
   ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(flymake-no-changes-timeout 5)
+ '(haskell-indentation-ifte-offset 4)
+ '(haskell-indentation-left-offset 4)
+ '(haskell-indentation-starter-offset 4)
+ '(haskell-indentation-where-post-offset 4)
+ '(haskell-indentation-where-pre-offset 4)
  '(modify-syntax-entry 95 t)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
