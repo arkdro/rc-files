@@ -1,0 +1,40 @@
+# Create a style called "inverted" where the text and base (the base color behind the widget) are the reverse of typical.
+style "inverted"
+{
+   text[NORMAL] = "#000000"
+   base[NORMAL] = "#999999"
+	GtkIMHtml::action-name-color = "#0AEDED"
+	GtkIMHtml::highlight-name-color = "#912828"
+	GtkIMHtml::hyperlink-color = "#F11717"
+	GtkIMHtml::receive-name-color = "#155014"
+	GtkIMHtml::send-name-color = "#1B2767"
+	GtkWidget::cursor-color = "#0343FC"
+	GtkWidget::secondary-cursor-color = "#02FF89"
+}
+
+# Apply "inverted" to conversation entry box--where you type.
+widget "*pidgin_conv_entry" style "inverted"
+
+# Apply "inverted" to conversation history pane--where you read the conversation.
+widget "*pidgin_conv_imhtml" style "inverted"
+widget "*" style "inverted"
+
+style "purplerc_style"
+{
+	GtkIMHtml::action-name-color = "#0AEDED"
+	GtkIMHtml::highlight-name-color = "#912828"
+	GtkIMHtml::hyperlink-color = "#F11717"
+	GtkIMHtml::receive-name-color = "#155014"
+	GtkIMHtml::send-name-color = "#1B2767"
+	GtkWidget::cursor-color = "#0343FC"
+	GtkWidget::secondary-cursor-color = "#02FF89"
+}
+#widget_class "*" style "purplerc_style"
+
+binding "my-bindings"
+{
+    bind "Return" { "insert-at-cursor" ("\n") }
+    bind "<ctrl>Return" { "message_send" () }
+}
+widget "*pidgin_conv_entry" binding "my-bindings"
+
