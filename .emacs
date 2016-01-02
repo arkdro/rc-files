@@ -276,3 +276,4 @@
     (set-buffer-modified-p nil)
     (kill-this-buffer))
 (global-set-key [(super ?k)] 'kill-this-buffer-volatile)
+(global-set-key (kbd "s-<delete>") 'kill-this-buffer-volatile)

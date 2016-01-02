@@ -23,6 +23,7 @@
 
 (custom-set-faces
   ; M-x customize-face RET py-TAB
+ '(font-lock-comment-face ((t (:foreground "gray50"))))
  '(py-variable-name-face ((t (:foreground "blue"))))
  '(py-number-face ((t (:foreground "pink")))))
 
