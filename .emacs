@@ -113,29 +113,9 @@
 ;;(set-face-font 'default "-rfx-fixed-medium-*-normal-*-24-170-100-100-*-*-iso10646-*")
 ;;(set-frame-font "-rfx-fixed-medium-*-normal-*-24-170-100-100-*-*-iso10646-*")
 ;; -rfx-fixed-medium-*-normal-*-24-230-75-75-*-*-iso10646-*
-(require 'color-theme)
-;;(setq color-theme-choices '(
-;;	color-theme-deep-blue
-;;	color-theme-standard
-;;	Arjen
-;;	Classic
-;;  Clarity and Beauty
-;;	Gnome 2
-;;	Gray1
-;;	Gray30
-;;	Late Night
-;;	Midnight
-;;	Taylor
-;;	White On Grey
-;;	))
-(color-theme-initialize)
-;;(setq theme-default 'color-theme-gnome2)
-;;(eval-after-load "color-theme" '(color-theme-gnome2))
-(color-theme-classic)
-;(color-theme-arjen)
-;(color-theme-taylor)
-;;(add-to-list 'default-frame-alist '(foreground-color . "white"))
-;;(add-to-list 'default-frame-alist '(background-color . "black"))
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'classic t t)
+(enable-theme 'classic)
 (add-to-list 'default-frame-alist '(cursor-color . "coral"))
 ;;(add-to-list 'default-frame-alist '(height . 24))
 ;;(add-to-list 'default-frame-alist '(width . 80))
