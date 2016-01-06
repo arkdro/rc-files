@@ -60,8 +60,8 @@
 (global-set-key [(control  up)]    'scroll-down-1)
 
 ; make window dedicated (one-way function)
-(require 'sticky-windows)
-(global-set-key (kbd "C-x <f9>") 'sticky-window-keep-window-visible)
+;(require 'sticky-windows)
+;(global-set-key (kbd "C-x <f9>") 'sticky-window-keep-window-visible)
 
 (desktop-save-mode 1)
 (setq desktop-globals-to-save
@@ -86,9 +86,11 @@
 
 (require 'icicles)
 (icy-mode 1)
-(require 'lacarte)
-(global-set-key [?\e ?\M-x] 'lacarte-execute-command)
-(global-set-key [?\M-`] 'lacarte-execute-command)
+
+;(require 'lacarte)
+;(global-set-key [?\e ?\M-x] 'lacarte-execute-command)
+;(global-set-key [?\M-`] 'lacarte-execute-command)
+
 ;;(require 'ido)
 ;;(setq ido-enable-flex-matching 't)
 (global-set-key [(super ?\])] 'find-tag)
@@ -157,9 +159,9 @@
 
 ; easy buffer switching
 ; note: since buffers are listed in LRU way, their numbers are changing. So...
-(require 'ebs)
-(ebs-initialize)
-(global-set-key [(control tab)] 'ebs-switch-buffer)
+;(require 'ebs)
+;(ebs-initialize)
+;(global-set-key [(control tab)] 'ebs-switch-buffer)
 
 ; http://www.emacswiki.org/emacs/SearchAtPoint
 ; Another variation that is very vim-like
