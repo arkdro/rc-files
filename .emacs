@@ -136,11 +136,12 @@
         (load-file "~/.emacs.d/rc/.emacs-ocaml")
         nil 'make-it-local))
 
-(load-file "~/.emacs.d/rc/.emacs-python")
-; the following hooker doesn't work
-;(add-hook 'python-mode-hook (lambda ()
-;                             (load-file "~/.emacs.d/rc/.emacs-python")
-;							  nil 'make-it-local))
+;(load-file "~/.emacs.d/rc/.emacs-python")
+; the following hooker doesn't work. Now it works.
+(add-hook 'python-mode-hook (lambda ()
+                             (load-file "~/.emacs.d/rc/.emacs-python")
+                            ))
+;;							  nil 'make-it-local))
 
 (add-hook 'haskell-mode-hook '(lambda ()
                           (global-set-key (kbd "M-.") 'inferior-haskell-find-definition)
