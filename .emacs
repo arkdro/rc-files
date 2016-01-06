@@ -47,6 +47,7 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
 (add-to-list 'load-path "~/.emacs.d/share/misc/elisp")
+(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet-0.8.0")
 
 (require 'evil-numbers)
 (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
@@ -96,10 +97,16 @@
 (global-set-key [(super ?\])] 'find-tag)
 (global-set-key [(super ?t)] 'pop-tag-mark)
 
+(add-to-list 'load-path "~/.emacs.d/share/auto-complete")
 (add-to-list 'load-path "~/.emacs.d/share/dabbrev/elisp")
-(require 'dabbrev-expand-multiple)
-(global-set-key "\M-/" 'dabbrev-expand-multiple)
-(setq dabbrev-case-fold-search t)
+(require 'ac-dabbrev)
+(add-to-list 'ac-sources 'ac-source-dabbrev)
+(defun ac-dabbrev-expand ()
+  (interactive)
+  (auto-complete '(ac-source-dabbrev)))
+(global-set-key "\M-/" 'ac-dabbrev-expand)
+(require 'auto-complete)
+(setq-default auto-complete-mode t)
 
 (add-to-list 'load-path "~/.emacs.d/share/whole-line-or-region/elisp")
 (transient-mark-mode t)
@@ -260,3 +267,8 @@
     (kill-this-buffer))
 (global-set-key [(super ?k)] 'kill-this-buffer-volatile)
 (global-set-key (kbd "s-<delete>") 'kill-this-buffer-volatile)
+
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
+
