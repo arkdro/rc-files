@@ -5,3 +5,9 @@
 (package-initialize)
 (elpy-enable)
 (elpy-use-ipython "/usr/bin/ipython3")
+(eval-after-load "elpy"
+     (define-key elpy-mode-map (kbd "C-<up>") nil)
+     (define-key elpy-mode-map (kbd "C-<down>") nil)
+     (define-key elpy-mode-map (kbd "s-<up>") 'elpy-nav-backward-block)
+     (define-key elpy-mode-map (kbd "s-<down>") 'elpy-nav-forward-block)
+)
