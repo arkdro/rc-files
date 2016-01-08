@@ -99,13 +99,15 @@
 
 (add-to-list 'load-path "~/.emacs.d/share/auto-complete")
 (add-to-list 'load-path "~/.emacs.d/share/dabbrev/elisp")
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
 (require 'ac-dabbrev)
 (add-to-list 'ac-sources 'ac-source-dabbrev)
 (defun ac-dabbrev-expand ()
   (interactive)
   (auto-complete '(ac-source-dabbrev)))
 (global-set-key "\M-/" 'ac-dabbrev-expand)
-(require 'auto-complete)
 (setq-default auto-complete-mode t)
 
 (add-to-list 'load-path "~/.emacs.d/share/whole-line-or-region/elisp")
