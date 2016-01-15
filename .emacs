@@ -277,3 +277,9 @@
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 
+(defun switch-to-previous-buffer ()
+      (interactive)
+      (switch-to-buffer (other-buffer (current-buffer) 1)))
+(global-set-key [(f12)] 'switch-to-previous-buffer)
+(global-set-key (kbd "<C-return>") 'switch-to-previous-buffer)
+
