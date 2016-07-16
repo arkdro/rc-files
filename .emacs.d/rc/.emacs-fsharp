@@ -1,0 +1,8 @@
+;; vim: ft=lisp
+;; Lisp mode
+
+(add-to-list 'auto-mode-alist '("\\.fs$" . 
+        (lambda ()
+                (require 'fsharp-mode)
+                ;(fsharp-mode)
+                )))
