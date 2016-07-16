@@ -235,6 +235,8 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(flymake-no-changes-timeout 5)
@@ -256,15 +258,6 @@
 	t)
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
 
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(font-lock-comment-face ((t (:foreground "grey50"))))
- '(py-number-face ((t (:foreground "pink"))))
- '(py-variable-name-face ((t (:foreground "blue")))))
-
 (defun kill-this-buffer-volatile ()
     "Kill current buffer, even if it has been modified."
     (interactive)
@@ -283,3 +276,9 @@
 (global-set-key [(f12)] 'switch-to-previous-buffer)
 (global-set-key (kbd "<C-return>") 'switch-to-previous-buffer)
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(font-lock-comment-face ((t (:foreground "grey51")))))
