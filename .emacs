@@ -46,8 +46,13 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
+; bind default-directory to a dir and add all subdirs (and single files) to load-path.
+; !!! Little dangerous to add everything to the load path.
+(let ((default-directory  "~/.emacs.d/elpa/"))
+  (normal-top-level-add-to-load-path '("."))
+  (normal-top-level-add-subdirs-to-load-path))
+
 (add-to-list 'load-path "~/.emacs.d/share/misc/elisp")
-(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet-0.8.0")
 
 (require 'evil-numbers)
 (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
@@ -266,9 +271,12 @@
 (global-set-key [(super ?k)] 'kill-this-buffer-volatile)
 (global-set-key (kbd "s-<delete>") 'kill-this-buffer-volatile)
 
+; (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
+; M-x package-refresh-contents
+; M-x package-install [RET] xxxxxxxxxx
 
 (defun switch-to-previous-buffer ()
       (interactive)
