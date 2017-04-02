@@ -124,7 +124,8 @@
 (setq default-frame-alist
     '(
         (width . 80) (height . 26)
-        (font . "-rfx-fixed-medium-*-normal-*-24-170-100-100-*-*-iso10646-*")
+        (font . "DejaVu Sans Mono 15")
+        ;(font . "-rfx-fixed-medium-*-normal-*-24-170-100-100-*-*-iso10646-*")
     ))
 
 ;;(set-face-font 'default "-rfx-fixed-medium-*-normal-*-24-170-100-100-*-*-iso10646-*")
