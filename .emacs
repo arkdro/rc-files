@@ -148,7 +148,10 @@
 (load-file "~/.emacs.d/rc/.emacs-ampl")
 (load-file "~/.emacs.d/rc/.emacs-erlang")
 (load-file "~/.emacs.d/rc/.emacs-clojure")
-(load-file "~/.emacs.d/rc/.emacs-go")
+add-hook 'go-mode-hook (lambda ()
+                          (load-file "~/.emacs.d/rc/.emacs-go")
+                        ))
+
 ;(load-file "~/.emacs.d/rc/.emacs-ocaml")
 (add-hook 'tuareg-mode-hook
     '(lambda ()
