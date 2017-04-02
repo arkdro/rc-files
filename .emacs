@@ -36,7 +36,6 @@
 (global-set-key (kbd "C-<prior>") 'tabbar-backward)
 (global-set-key (kbd "C-<next>") 'tabbar-forward)
 
-(show-ws-toggle-show-tabs)
 ;(toggle-show-trailing-whitespace-show-ws)
 (set-default 'indicate-empty-lines t)
 
@@ -53,6 +52,8 @@
   (normal-top-level-add-subdirs-to-load-path))
 
 (add-to-list 'load-path "~/.emacs.d/share/misc/elisp")
+(require 'highlight-chars)
+(hc-highlight-tabs)
 
 (require 'evil-numbers)
 (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
