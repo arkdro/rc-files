@@ -31,6 +31,7 @@ set shortmess=a
 set modeline
 set viminfo='50,/20,:20,@20,f1
 set ignorecase
+set virtualedit=block
 syntax on
 filetype plugin indent on
 hi normal guibg=grey5
