@@ -301,3 +301,8 @@
  '(font-lock-comment-face ((t (:foreground "grey51")))))
 
 (global-flycheck-mode)
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+(setq neo-smart-open t)
+
