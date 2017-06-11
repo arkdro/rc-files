@@ -2,3 +2,16 @@
 (require 'highlight-chars)
 (hc-dont-highlight-tabs)
 
+;; godef
+(require 'go-mode-autoloads)
+(local-set-key (kbd "M-.") #'godef-jump)
+(local-set-key (kbd "M-,") 'pop-tag-mark)
+
+;; gocode
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+;; guru
+(require 'go-guru)
+(go-guru-hl-identifier-mode)
