@@ -306,3 +306,6 @@
 (global-set-key [f8] 'neotree-toggle)
 (setq neo-smart-open t)
 
+(global-set-key [f7] 'find-file-in-project)
+(global-set-key (kbd "C-S-n") 'find-file-in-project)
+
