@@ -148,7 +148,7 @@
 (load-file "~/.emacs.d/rc/.emacs-ampl")
 (load-file "~/.emacs.d/rc/.emacs-erlang")
 (load-file "~/.emacs.d/rc/.emacs-clojure")
-add-hook 'go-mode-hook (lambda ()
+(add-hook 'go-mode-hook (lambda ()
                           (load-file "~/.emacs.d/rc/.emacs-go")
                         ))
 
