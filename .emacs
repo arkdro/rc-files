@@ -252,6 +252,7 @@
    [default default default italic underline success warning error])
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(flycheck-idle-change-delay 5)
  '(flymake-no-changes-timeout 5)
  '(haskell-indentation-ifte-offset 4)
  '(haskell-indentation-left-offset 4)
