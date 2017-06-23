@@ -16,5 +16,5 @@
 (require 'go-guru)
 (go-guru-hl-identifier-mode)
 (set-face-attribute 'go-guru-hl-identifier-face nil
-                    :background "DeepSkyBlue3"
+                    :background "DeepSkyBlue4"
                     :foreground "grey90")
