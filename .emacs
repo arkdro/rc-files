@@ -2,10 +2,10 @@
 ; one console for debug. Almost without success...
 ; Trying don't split windows (now it creates new frames...
 ; little better but still "fucking idiocy")
-(setq split-window-preferred-function nil)
-(setq display-buffer-reuse-frames t)
+;(setq split-window-preferred-function nil)
+;(setq display-buffer-reuse-frames t)
 (setq pop-up-windows nil)
-(setq pop-up-frames nil)
+;(setq pop-up-frames nil)
 ; window splitting disabled, and fun below is nil. So can't create frame
 ; to jump on tags
 ;(setq pop-up-frame-function nil)
@@ -308,4 +308,7 @@
 
 (global-set-key [f7] 'find-file-in-project)
 (global-set-key (kbd "C-S-n") 'find-file-in-project)
+
+; simulate one IDE on closing the windows that are not in the focus
+(global-set-key [(shift escape)] 'delete-other-windows)
 
