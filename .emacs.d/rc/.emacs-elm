@@ -3,3 +3,8 @@
 
 (require 'flycheck)
 (add-hook 'flycheck-mode-hook 'flycheck-elm-setup)
+
+; probably need to deactivate auto-complete
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+(add-to-list 'company-backends 'company-elm)
