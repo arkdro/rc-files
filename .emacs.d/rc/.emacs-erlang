@@ -45,3 +45,9 @@
     (define-key erlang-shell-mode-map (car spec) (cadr spec)))))
 (setq erlang-electric-commands 't)
 
+;; if flycheck shows errors on includes, then add current project includes
+;(setq flycheck-erlang-include-path
+;    (append
+;      (file-expand-wildcards (expand-file-name "~/MongooseIM/??ps"))
+;      (file-expand-wildcards (expand-file-name "~/MongooseIM/??ps/*/include"))
+;      flycheck-erlang-include-path))
