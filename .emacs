@@ -313,3 +313,5 @@
 ; simulate one IDE on closing the windows that are not in the focus
 (global-set-key [(shift escape)] 'delete-other-windows)
 
+; sort order for dired
+(setq dired-listing-switches "-alv  --group-directories-first")
