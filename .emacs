@@ -92,7 +92,8 @@
 ;;(setq savehist-file "~/.emacs.d/tmp/savehist")
 
 (require 'icicles)
-(icy-mode 1)
+;; icy-mode meddles with frame/window creation. So, activate it only when necessary.
+;(icy-mode 1)
 
 ;(require 'lacarte)
 ;(global-set-key [?\e ?\M-x] 'lacarte-execute-command)
