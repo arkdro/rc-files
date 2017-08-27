@@ -407,6 +407,7 @@
 
 ; highlight symbol at point
 (require 'highlight-symbol)
+(highlight-symbol-mode)
 (global-set-key [(super f3)] 'highlight-symbol)
 (global-set-key [f3] 'highlight-symbol-next)
 (global-set-key [(shift f3)] 'highlight-symbol-prev)
