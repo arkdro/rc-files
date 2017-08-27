@@ -35,6 +35,7 @@
     mouse-yank-at-point t
     tabbar-local-mode t
     case-fold-search t
+    isearch-allow-scroll t
     completion-ignore-case t
     read-file-name-completion-ignore-case t
     read-buffer-completion-ignore-case t
