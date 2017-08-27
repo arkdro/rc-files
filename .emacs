@@ -1,3 +1,8 @@
+
+;;;; FRAMES/WINDOWS
+
+
+
 ; trying to keep one frame with one window for text and other frame with
 ; one console for debug. Almost without success...
 ; Trying don't split windows (now it creates new frames...
@@ -16,6 +21,8 @@
 ; special-display-buffer-names, speical-display-regexps,
 ; special-display-function, display-buffer-function.
 
+;;;; DEFAULTS
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 (put 'upcase-region 'disabled nil)
 (setq-default indent-tabs-mode nil)
@@ -33,17 +40,25 @@
     read-buffer-completion-ignore-case t
 )
 
+;;;; TABBAR
+
 (global-set-key (kbd "C-<prior>") 'tabbar-backward)
 (global-set-key (kbd "C-<next>") 'tabbar-forward)
 
+;;;; SHOW EMPTY LINES
+
 ;(toggle-show-trailing-whitespace-show-ws)
 (set-default 'indicate-empty-lines t)
+
+;;;; SCROLL
 
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
+
+;;;; LOAD DIRS
 
 ; bind default-directory to a dir and add all subdirs (and single files) to load-path.
 ; !!! Little dangerous to add everything to the load path.
@@ -52,19 +67,34 @@
   (normal-top-level-add-subdirs-to-load-path))
 
 (add-to-list 'load-path "~/.emacs.d/share/misc/elisp")
+
+;;;; HIGHLIGHT CHARS
+
 (require 'highlight-chars)
 (hc-highlight-tabs)
+
+;;;; EVIL NUMBERS
 
 (require 'evil-numbers)
 (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
+;;;; DIRED+
+
 (require 'dired+)
+
+;;;; THING AT POINT+
+
 (require 'thingatpt+)
+
+;;;; SMOOTH SCROLL
+
 (require 'smooth-scroll)
 (smooth-scroll-mode t)
 (global-set-key [(control  down)]  'scroll-up-1)
 (global-set-key [(control  up)]    'scroll-down-1)
+
+;;;; DESKTOP VARS
 
 ; make window dedicated (one-way function)
 ;(require 'sticky-windows)
@@ -91,6 +121,8 @@
     '(kill-ring search-ring regexp-search-ring))
 ;;(setq savehist-file "~/.emacs.d/tmp/savehist")
 
+;;;; ICICLES
+
 (require 'icicles)
 ;; icy-mode meddles with frame/window creation. So, activate it only when necessary.
 ;(icy-mode 1)
@@ -101,11 +133,17 @@
 
 ;;(require 'ido)
 ;;(setq ido-enable-flex-matching 't)
+
+;;;; JUMP FORTH/BACK TAG
+
 (global-set-key [(super ?\])] 'find-tag)
 (global-set-key [(super ?t)] 'pop-tag-mark)
 
 ;(add-to-list 'load-path "~/.emacs.d/share/auto-complete")
 ;(add-to-list 'load-path "~/.emacs.d/share/dabbrev/elisp")
+
+;;;; AUTO COMPLETE
+
 (require 'auto-complete)
 (global-auto-complete-mode t)
 (require 'auto-complete-config)
@@ -118,10 +156,14 @@
 ;(global-set-key "\M-/" 'ac-dabbrev-expand)
 (add-to-list 'ac-modes 'erlang-mode)
 
+;;;; WHOLE LINE OR REGION
+
 (add-to-list 'load-path "~/.emacs.d/share/whole-line-or-region/elisp")
 (transient-mark-mode t)
 (require 'whole-line-or-region)
 (whole-line-or-region-mode 1)
+
+;;;; FRAME PROPERTIES
 
 (setq default-frame-alist
     '(
@@ -140,11 +182,15 @@
 ;;(add-to-list 'default-frame-alist '(height . 24))
 ;;(add-to-list 'default-frame-alist '(width . 80))
 
+;;;; REDO+
+
 ;; normal undo/redo
 (add-to-list 'load-path "~/.emacs.d/share/redoplus/elisp")
 (require 'redo+)
 (global-set-key (kbd "C-?") 'redo)
 (setq undo-no-redo t)
+
+;;;; OTHER LANGUAGES
 
 (load-file "~/.emacs.d/rc/.emacs-ampl")
 ;(load-file "~/.emacs.d/rc/.emacs-erlang")
@@ -188,6 +234,8 @@
 ;(ebs-initialize)
 ;(global-set-key [(control tab)] 'ebs-switch-buffer)
 
+;;;; SEARCH AT POINT
+
 ; http://www.emacswiki.org/emacs/SearchAtPoint
 ; Another variation that is very vim-like
 (defun my-isearch-word-at-point ()
@@ -216,15 +264,29 @@
 (global-set-key (kbd "C-*") 'my-isearch-word-at-point)
 (global-set-key (kbd "C-<kp-multiply>") 'my-isearch-word-at-point)
 
+;;;; YASNIPPET
+
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;;;; F2 FOR SAVE
+
 (global-set-key (kbd "<f2>") 'save-buffer)
 
+;;;; SAVE PLACE
+
 (setq-default save-place t)
+
+;;;; TAB WIDTH
+
 (setq default-tab-width 4)
+
+;;;; GIT
+
 ;; git
 (autoload 'magit-status "magit" nil t)
+
+;;;; SWITCHING WINDOWS
 
 ;; moving between windows
 (defun select-next-window ()
@@ -240,8 +302,13 @@
 (global-set-key (kbd "M-<right>") 'select-next-window)
 (global-set-key (kbd "M-<left>")  'select-previous-window)
 
+;;;; UNIQ BUFFER NAMES
+
 ;; make same buffer names look different
 (require 'uniquify)
+
+;;;; CUSTOM VARS
+
 ;; moving these options outside of custom block makes emacsclient ignore them
 ;; it's weird in fact
 (custom-set-variables
@@ -268,10 +335,14 @@
 ;(require 'server)
 ;(setq frame-title-format (list server-name " - %b"))
 
+;;;; PAREDIT
+
 (autoload 'paredit-mode "paredit"
 	"Minor mode for pseudo-structurally editing Lisp code."
 	t)
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
+
+;;;; KILL BUFFER
 
 (defun kill-this-buffer-volatile ()
     "Kill current buffer, even if it has been modified."
@@ -281,6 +352,8 @@
 (global-set-key [(super ?k)] 'kill-this-buffer-volatile)
 (global-set-key (kbd "s-<delete>") 'kill-this-buffer-volatile)
 
+;;;; PACKAGE ARCHIVES
+
 ; (require 'package)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
@@ -288,11 +361,15 @@
 ; M-x package-refresh-contents
 ; M-x package-install [RET] xxxxxxxxxx
 
+;;;; SWITCH BUFFERS KEY
+
 (defun switch-to-previous-buffer ()
       (interactive)
       (switch-to-buffer (other-buffer (current-buffer) 1)))
 (global-set-key [(f12)] 'switch-to-previous-buffer)
 (global-set-key (kbd "<C-return>") 'switch-to-previous-buffer)
+
+;;;; CUSTOM FACE
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -301,20 +378,32 @@
  ;; If there is more than one, they won't work right.
  '(font-lock-comment-face ((t (:foreground "grey51")))))
 
+;;;; FLYCHECK
+
 (global-flycheck-mode)
+
+;;;; NEO TREE
 
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 (setq neo-smart-open t)
 
+;;;; FIND FILE IN PROJECT
+
 (global-set-key [f7] 'find-file-in-project)
 (global-set-key (kbd "C-S-n") 'find-file-in-project)
+
+;;;; CLOSE OTHER WINDOW KEY
 
 ; simulate one IDE on closing the windows that are not in the focus
 (global-set-key [(shift escape)] 'delete-other-windows)
 
+;;;; DIRED
+
 ; sort order for dired
 (setq dired-listing-switches "-alv  --group-directories-first")
+
+;;;; HIGHLIGHT AT POINT
 
 ; highlight symbol at point
 (require 'highlight-symbol)
@@ -322,3 +411,6 @@
 (global-set-key [f3] 'highlight-symbol-next)
 (global-set-key [(shift f3)] 'highlight-symbol-prev)
 (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+
+;;; .emacs ends here
+
