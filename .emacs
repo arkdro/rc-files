@@ -412,5 +412,14 @@
 (global-set-key [(shift f3)] 'highlight-symbol-prev)
 (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
-;;; .emacs ends here
+;;;; DUMB JUMP
 
+; first activate dumb-jump mode to use these keys:
+; (dumb-jump-mode)
+
+(add-hook 'dumb-jump-mode-hook
+          (lambda ()
+            (define-key dumb-jump-mode-map (kbd "M-g M-.") 'dumb-jump-go)
+            (define-key dumb-jump-mode-map (kbd "M-g M-,") 'dumb-jump-back)))
+
+;;; .emacs ends here
