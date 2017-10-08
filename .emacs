@@ -390,10 +390,16 @@
 (global-set-key [f8] 'neotree-toggle)
 (setq neo-smart-open t)
 
-;;;; FIND FILE IN PROJECT
+;;;; PROJECTILE
 
-(global-set-key [f7] 'find-file-in-project)
-(global-set-key (kbd "C-S-n") 'find-file-in-project)
+(require 'projectile)
+(projectile-mode)
+
+;;;; COUNSEL PROJECTILE
+
+(require 'counsel-projectile)
+(counsel-projectile-on)
+(global-set-key [f7] 'counsel-projectile-find-file)
 
 ;;;; CLOSE OTHER WINDOW KEY
 
