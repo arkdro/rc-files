@@ -394,6 +394,12 @@
 
 (require 'projectile)
 (projectile-mode)
+; (projectile-global-mode)
+;; projectile-global-mode without caching is very slow
+(setq projectile-enable-caching t)
+;; grizzl is shadowed by counsel-projectile
+(require 'grizzl)
+(setq projectile-completion-system 'grizzl)
 
 ;;;; COUNSEL PROJECTILE
 
