@@ -16,3 +16,8 @@
 		;; for search:
 		(modify-syntax-entry ?_ "w")
 	))
+
+(add-hook 'cider-mode-hook
+    (lambda ()
+        (setq cider-prompt-for-symbol nil)
+))
