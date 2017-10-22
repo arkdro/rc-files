@@ -4,28 +4,28 @@
 (setq exec-path (cons "/usr/local/lein/bin" exec-path))
 
 (add-to-list 'auto-mode-alist '("\\.clj$" .
-		(lambda ()
-				;; add major mode setting here, if needed, for example:
-				;; (text-mode)
-				(require 'clojure-mode)
-				;(require 'clojure-test-mode)
-				(clojure-mode)
-				;(print major-mode) ; gives 'clojure-mode'
-				;(set-hist-file "clojure")
-				)))
+        (lambda ()
+                ;; add major mode setting here, if needed, for example:
+                ;; (text-mode)
+                (require 'clojure-mode)
+                ;(require 'clojure-test-mode)
+                (clojure-mode)
+                ;(print major-mode) ; gives 'clojure-mode'
+                ;(set-hist-file "clojure")
+                )))
 ;; try symbol at point first, and ask if not found
 (setq cider-prompt-for-symbol nil)
 
 (add-hook 'clojure-mode-hook
-	(lambda ()
+    (lambda ()
         ;; doesn't help
         ;(add-hook 'kill-buffer-hook 'comint-write-input-ring nil t)
         ;(setq comint-input-ring-file-name "~/.clojure_emacs_history")
         ;(setq comint-input-ignoredups t)
         ;(comint-read-input-ring t)
-		;; for search:
-		(modify-syntax-entry ?_ "w")
-	))
+        ;; for search:
+        (modify-syntax-entry ?_ "w")
+    ))
 
 (add-hook 'cider-mode-hook
     (lambda ()
