@@ -3,6 +3,16 @@
 
 (setq exec-path (cons "/usr/local/lein/bin" exec-path))
 
+(add-to-list 'auto-mode-alist '("\\.clj$" .
+		(lambda ()
+				;; add major mode setting here, if needed, for example:
+				;; (text-mode)
+				(require 'clojure-mode)
+				;(require 'clojure-test-mode)
+				(clojure-mode)
+				;(print major-mode) ; gives 'clojure-mode'
+				;(set-hist-file "clojure")
+				)))
 ;; try symbol at point first, and ask if not found
 (setq cider-prompt-for-symbol nil)
 
