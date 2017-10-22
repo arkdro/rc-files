@@ -12,6 +12,11 @@
 				;(set-hist-file "clojure")
 				)
 								))
+(setq exec-path (cons "/usr/local/lein/bin" exec-path))
+
+;; try symbol at point first, and ask if not found
+(setq cider-prompt-for-symbol nil)
+
 (add-hook 'clojure-mode-hook
 	(lambda ()
         ;; doesn't help
