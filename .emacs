@@ -445,4 +445,15 @@
             (define-key dumb-jump-mode-map (kbd "M-g M-.") 'dumb-jump-go)
             (define-key dumb-jump-mode-map (kbd "M-g M-,") 'dumb-jump-back)))
 
+;;;; DIMINISH
+
+;; diminish function can be called only when a minor mode is available, so you have to wrap it into eval-after-load
+
+(require 'diminish)
+(diminish 'projectile-mode)
+(diminish 'smooth-scroll-mode)
+(diminish 'whole-line-or-region-mode)
+(diminish 'yas-minor-mode)
+(diminish 'auto-complete-mode)
+
 ;;; .emacs ends here
