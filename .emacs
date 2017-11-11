@@ -455,5 +455,6 @@
 (diminish 'whole-line-or-region-mode)
 (diminish 'yas-minor-mode)
 (diminish 'auto-complete-mode)
+(diminish 'auto-revert-mode)
 
 ;;; .emacs ends here
