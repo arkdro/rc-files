@@ -6,6 +6,8 @@
 (require 'go-mode-autoloads)
 (local-set-key (kbd "M-.") #'godef-jump)
 (local-set-key (kbd "M-,") 'pop-tag-mark)
+(local-set-key (kbd "M-]") 'next-error)
+(local-set-key (kbd "M-[") 'previous-error)
 
 ;; gocode
 (require 'go-autocomplete)
@@ -13,6 +15,9 @@
 (ac-config-default)
 
 ;; guru
+;; First set a scope before using call graph functions.
+;; The scope is typically specified as a comma-separated set of packages,
+;; or wildcarded subtrees (note three dots) like github.com/asdf/ccl_g/...
 (require 'go-guru)
 (go-guru-hl-identifier-mode)
 (set-face-attribute 'go-guru-hl-identifier-face nil
