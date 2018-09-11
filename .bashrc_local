@@ -4,4 +4,4 @@ export VISUAL=vim
 export EDITOR=vim
 export LC_MESSAGES=C
 alias v='ls -l'
-export LESS=-i
+export LESS=-iR
