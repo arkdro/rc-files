@@ -1,0 +1,8 @@
+alias v='ls -l'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias mc='mc -d'
+alias gtt='gitk --all --date-order'
+alias grep='grep --color=auto'
+alias ag='ag --group --color'
