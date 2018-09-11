@@ -430,10 +430,12 @@
 ;; It doesn't start using just (highlight-symbol-mode 1) from .emacs file.
 ;; Although, it starts when called manually (highlight-symbol-mode 1).
 ;; So, for starting from .emacs, the lambda is necessary.
-(define-global-minor-mode my-global-highlight-symbol-mode
-  highlight-symbol-mode
-  (lambda () (highlight-symbol-mode 1)))
-(my-global-highlight-symbol-mode)
+;; It breaks magit coloring - it resets it to non-coloring. Better not use it globally,
+;; but only per mode or per buffer.
+; (define-global-minor-mode my-global-highlight-symbol-mode
+;   highlight-symbol-mode
+;   (lambda () (highlight-symbol-mode 1)))
+; (my-global-highlight-symbol-mode)
 
 ;;;; DUMB JUMP
 

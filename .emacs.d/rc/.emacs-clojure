@@ -25,6 +25,8 @@
         ;(comint-read-input-ring t)
         ;; for search:
         (modify-syntax-entry ?_ "w")
+        ;; for auto highlight symbol at point
+        (highlight-symbol-mode 1)
     ))
 
 ;; syntax highlight of function calls
