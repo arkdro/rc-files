@@ -1,0 +1,11 @@
+;; vim: ft=lisp
+;; Lisp mode
+
+(add-hook 'kotlin-mode-hook
+    (lambda ()
+        (modify-syntax-entry ?_ "w")
+        (modify-syntax-entry ?< "(")
+        (modify-syntax-entry ?> ")")
+        (add-to-list 'tramp-remote-path "/usr/local/java/jdk1.8.0_172/bin")
+        (add-to-list 'tramp-remote-path "/usr/local/kotlin/kotlinc/bin")
+    ))
