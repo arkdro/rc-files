@@ -34,7 +34,13 @@
     (lambda ()
         (font-lock-add-keywords
             nil
-            '(("(\\(\\w+\\)\\s-+" 1 font-lock-keyword-face)))))
+            '(("(\\(\\w+\\)\\(\\s-\\|$\\)" 1 font-lock-keyword-face)))
+        (font-lock-add-keywords
+            nil
+            '(("(\\([[:word:]]+\\)/\\([[:word:]]+\\)\\(\\s-\\|$\\)"
+                (1 font-lock-type-face)
+                (2 font-lock-keyword-face) )))
+    ))
 
 (add-hook 'cider-mode-hook
     (lambda ()
