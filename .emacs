@@ -203,12 +203,12 @@
                           (load-file "~/.emacs.d/rc/.emacs-go")
                         ))
 
-;(load-file "~/.emacs.d/rc/.emacs-ocaml")
-(add-hook 'tuareg-mode-hook
-    '(lambda ()
-        ; (add-hook HOOK FUNCTION &optional APPEND LOCAL) <- LOCAL=t
-        (load-file "~/.emacs.d/rc/.emacs-ocaml")
-        nil 'make-it-local))
+(load-file "~/.emacs.d/rc/.emacs-ocaml")
+;(add-hook 'tuareg-mode-hook
+;    '(lambda ()
+;        ; (add-hook HOOK FUNCTION &optional APPEND LOCAL) <- LOCAL=t
+;        (load-file "~/.emacs.d/rc/.emacs-ocaml")
+;        nil 'make-it-local))
 
 ;(load-file "~/.emacs.d/rc/.emacs-python")
 ; the following hooker doesn't work. Now it works.
