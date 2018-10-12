@@ -7,6 +7,11 @@
 ;; 3 - eval `~/util/ocaml/lib/bin/opam config env`
 ;; 4 - start emacs
 
+(load "~/.opam/system/share/emacs/site-lisp/tuareg-site-file")
+
+; offer auto-completion annoyingly
+(setq merlin-ac-setup t)
+
 ; comint-input-ring (namely 'history') for ocaml doesn't work out of the box.
 ; It's strange.
 (add-hook 'tuareg-interactive-mode-hook
@@ -87,16 +92,19 @@
 (modify-syntax-entry ?_ "w")
 
 ;; for merlin:
-;; Add opam emacs directory to the load-path
-(setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
-(add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
-;; Load merlin-mode
-(require 'merlin)
-;; Start merlin on ocaml files
-(add-hook 'tuareg-mode-hook 'merlin-mode t)
-(add-hook 'caml-mode-hook 'merlin-mode t)
-;; Enable auto-complete
-(setq merlin-use-auto-complete-mode 'easy)
-;; Use opam switch to lookup ocamlmerlin binary
-(setq merlin-command 'opam)
+(let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+ (when (and opam-share (file-directory-p opam-share))
+  ;; Register Merlin
+  (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+  (autoload 'merlin-mode "merlin" nil t nil)
+  ;; Automatically start it in OCaml buffers
+  (add-hook 'tuareg-mode-hook 'merlin-mode t)
+  (add-hook 'caml-mode-hook 'merlin-mode t)
+  ;; Use opam switch to lookup ocamlmerlin binary
+  (setq merlin-command 'opam)))
+
+(add-hook 'tuareg-mode-hook
+      '(lambda ()
+         (global-set-key (kbd "TAB") 'auto-complete) ; for completion on demand
+         ))
 
