@@ -106,5 +106,7 @@
 (add-hook 'tuareg-mode-hook
       '(lambda ()
          (global-set-key (kbd "TAB") 'auto-complete) ; for completion on demand
+         (define-key tuareg-mode-map (kbd "M-.") 'merlin-locate)
+         (define-key tuareg-mode-map (kbd "M-,") 'merlin-pop-stack)
          ))
 
