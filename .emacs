@@ -193,7 +193,7 @@
 
 ;;;; OTHER LANGUAGES
 
-(load-file "~/.emacs.d/rc/.emacs-ampl")
+;(load-file "~/.emacs.d/rc/.emacs-ampl")
 ;(load-file "~/.emacs.d/rc/.emacs-erlang")
 (add-hook 'erlang-mode-hook (lambda ()
                           (load-file "~/.emacs.d/rc/.emacs-erlang")
