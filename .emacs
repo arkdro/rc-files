@@ -191,6 +191,17 @@
 (global-set-key (kbd "C-?") 'redo)
 (setq undo-no-redo t)
 
+;;;; HIGHLIGHT INDENTATION
+
+(require 'highlight-indent-guides)
+;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode) ; most programming languages hook
+(add-hook 'prog-mode-hook (lambda ()
+    (highlight-indent-guides-mode)
+    (setq highlight-indent-guides-method 'character)
+    ;(setq highlight-indent-guides-character ?.)
+    (modify-syntax-entry ?_ "w")
+  ))
+
 ;;;; OTHER LANGUAGES
 
 ;(load-file "~/.emacs.d/rc/.emacs-ampl")
