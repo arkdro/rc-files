@@ -1,8 +1,9 @@
 ;; vim: ft=lisp
 ;; Lisp mode
 
-(add-to-list 'auto-mode-alist '("\\.fs$" . 
-        (lambda ()
-                (require 'fsharp-mode)
-                ;(fsharp-mode)
-                )))
+(add-hook 'fsharp-mode-hook '(lambda ()
+    ;(modify-syntax-entry ?_ "w")
+    (define-key fsharp-mode-map (kbd "s-SPC") 'fsharp-ac/complete-at-point)
+    (setq fsharp-ac-use-popup nil) ; nil - split window, 1 - popup
+  nil 'make-it-local))
+
