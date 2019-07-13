@@ -5,3 +5,12 @@ export EDITOR=vim
 export LC_MESSAGES=C
 alias v='ls -l'
 export LESS=-iR
+
+export TMP=$HOME/.tmp
+export TEMP=$TMP
+export TMPDIR=$TMP
+export TEMPDIR=$TMP
+export TMP_DIR=$TMP
+export TEMP_DIR=$TMP
+mkdir -p "$TMP"
+
