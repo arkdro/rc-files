@@ -36,3 +36,7 @@ syntax on
 filetype plugin indent on
 hi normal guibg=grey5
 hi Comment guifg=darkgreen ctermfg=darkgreen
+
+imap <special> <F2> <C-o>:w!<CR>
+map <F2> :w!<Enter>
+set background=dark
