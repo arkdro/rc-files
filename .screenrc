@@ -1,2 +1,3 @@
+ignorecase on
 defscrollback 40960
-bufferfile /tmp/screen-exchange-$USER
+bufferfile $TMP/screen-exchange-$USER
