@@ -1,3 +1,4 @@
+deflogin off
 ignorecase on
 defscrollback 40960
 bufferfile $TMP/screen-exchange-$USER
